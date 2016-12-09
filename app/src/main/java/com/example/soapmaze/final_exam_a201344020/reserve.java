@@ -52,11 +52,20 @@ public class reserve extends AppCompatActivity {
         start_switch.setOnCheckedChangeListener(new Switch.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                reserve_chrono.setBase(SystemClock.elapsedRealtime());
-                reserve_chrono.start();
-                String strColor = "#0000FF";
-                reserve_chrono.setTextColor(Color.parseColor(strColor));
-                customer.setVisibility(View.VISIBLE);
+                if(b) {
+                    reserve_chrono.setBase(SystemClock.elapsedRealtime());
+                    reserve_chrono.start();
+                    String strColor = "#0000FF";
+                    reserve_chrono.setTextColor(Color.parseColor(strColor));
+                    customer.setVisibility(View.VISIBLE);
+                }
+                else {
+                    reserve_chrono.setBase(SystemClock.elapsedRealtime());
+                    reserve_chrono.stop();
+                    String strColor = "#000000";
+                    reserve_chrono.setTextColor(Color.parseColor(strColor));
+                    customer.setVisibility(View.INVISIBLE);
+                }
             }
         });
     }
