@@ -20,7 +20,7 @@
             android:text="예약시작"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/switch1"
+            android:id="@+id/reserve_switch"
             android:layout_weight="0.17" />
 
         <Chronometer
@@ -36,13 +36,15 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:orientation="vertical"
-        android:visibility="visible">
+        android:visibility="visible"
+        android:id="@+id/reserve_frame">
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="invisible">
+            android:visibility="invisible"
+            android:id="@+id/reserve_customer">
 
             <TextView
                 android:text="인원예약"
@@ -69,7 +71,7 @@
                     android:layout_height="wrap_content"
                     android:inputType="number"
                     android:ems="10"
-                    android:id="@+id/editText2"
+                    android:id="@+id/inputAdult"
                     android:layout_weight="1" />
 
             </LinearLayout>
@@ -91,7 +93,7 @@
                     android:layout_height="wrap_content"
                     android:inputType="number"
                     android:ems="10"
-                    android:id="@+id/editText3" />
+                    android:id="@+id/inputYoung" />
 
             </LinearLayout>
 
@@ -112,34 +114,35 @@
                     android:layout_height="wrap_content"
                     android:inputType="number"
                     android:ems="10"
-                    android:id="@+id/editText4"
+                    android:id="@+id/inputChild"
                     android:layout_weight="1" />
 
             </LinearLayout>
 
             <RadioGroup
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent"
+                android:id="@+id/rad_discount">
 
                 <RadioButton
                     android:text="기본할인(5%할인)"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/radioButton3"
+                    android:id="@+id/rbtn_default"
                     android:layout_weight="1" />
 
                 <RadioButton
                     android:text="현금할인(10%할인)"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/radioButton2"
+                    android:id="@+id/rbtn_cash"
                     android:layout_weight="1" />
 
                 <RadioButton
                     android:text="MemberShip있음(20%할인)"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/radioButton"
+                    android:id="@+id/rbtn_membership"
                     android:layout_weight="1" />
 
 
@@ -155,14 +158,14 @@
                     android:text="예약완료"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/button2"
+                    android:id="@+id/btn_regist"
                     android:layout_weight="1" />
 
                 <Button
                     android:text="시간예약 GO"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/button"
+                    android:id="@+id/btn_timereserve"
                     android:layout_weight="1" />
 
 
@@ -197,25 +200,27 @@
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:id="@+id/reserve_time">
 
             <RadioGroup
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:id="@+id/rad_datetime">
 
                 <RadioButton
                     android:text="일자 설정"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/radioButton5"
+                    android:id="@+id/rbtn_datepick"
                     android:layout_weight="1" />
 
                 <RadioButton
                     android:text="시간 설정"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/radioButton4"
+                    android:id="@+id/rbtn_timepick"
                     android:layout_weight="1" />
             </RadioGroup>
 
