@@ -34,6 +34,9 @@ public class reserve extends AppCompatActivity {
     int adult_total, young_total, child_total;
     double discount_price;
     boolean custom_completeflag = false;
+    String selected_date;
+    String selected_time;
+    String datetime;
 
 
     @Override
@@ -159,11 +162,29 @@ public class reserve extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(custom_completeflag) {
-
+                    datetime = selected_date + selected_time;
+                    Toast.makeText(getApplicationContext(), datetime +" 예약이 완료되었습니다.", Toast.LENGTH_SHORT).show();
                 }
                 else {
                     Toast.makeText(getApplicationContext(), "인원예약을 먼저하세요.", Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+
+        d_pick.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+            @Override
+            public void onSelectedDayChange(CalendarView calendarView, int year, int month, int date) {
+                selected_date = year + "년 ";
+                selected_date += (month+1) + "월 ";
+                selected_date += date + "일 ";
+            }
+        });
+
+        t_pick.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
+            @Override
+            public void onTimeChanged(TimePicker timePicker, int i, int i1) {
+                selected_time = i + "시 ";
+                selected_time += i1 + "분";
             }
         });
 
