@@ -10,6 +10,7 @@ import android.widget.CalendarView;
 import android.widget.Chronometer;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -29,6 +30,7 @@ public class reserve extends AppCompatActivity {
     LinearLayout customer, datetimepick;
     Button costregist, gotimepick, timeregist, backpage;
     TextView totalreserved, total_discount, total_cost;
+    ImageView images;
     int total_customer;
     double total_price;
     int adult_total, young_total, child_total;
@@ -63,6 +65,7 @@ public class reserve extends AppCompatActivity {
         gotimepick = (Button)findViewById(R.id.btn_timereserve);
         timeregist = (Button)findViewById(R.id.btn_timeregist);
         backpage = (Button)findViewById(R.id.btn_back);
+        images = (ImageView)findViewById(R.id.imageView);
         customer.setVisibility(View.INVISIBLE);
         datetimepick.setVisibility(View.INVISIBLE);
         totalreserved = (TextView)findViewById(R.id.txtTotalperson);
@@ -101,12 +104,15 @@ public class reserve extends AppCompatActivity {
                 switch(i) {
                     case R.id.rbtn_default :
                         discount_price = total_price * 0.05;
+                        images.setImageResource(R.drawable.a1);
                         break;
                     case R.id.rbtn_cash :
                         discount_price = total_price * 0.1;
+                        images.setImageResource(R.drawable.a2);
                         break;
                     case R.id.rbtn_membership :
                         discount_price = total_price * 0.2;
+                        images.setImageResource(R.drawable.a3);
                         break;
                 }
             }
@@ -164,6 +170,8 @@ public class reserve extends AppCompatActivity {
                 if(custom_completeflag) {
                     datetime = selected_date + selected_time;
                     Toast.makeText(getApplicationContext(), datetime +" 예약이 완료되었습니다.", Toast.LENGTH_SHORT).show();
+                    reserve_chrono.stop();
+                    String strColor = "#FF0000";
                 }
                 else {
                     Toast.makeText(getApplicationContext(), "인원예약을 먼저하세요.", Toast.LENGTH_SHORT).show();

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_reserve"
     android:layout_width="match_parent"
@@ -119,36 +120,51 @@
 
             </LinearLayout>
 
-            <RadioGroup
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/rad_discount">
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
 
-                <RadioButton
-                    android:text="기본할인(5%할인)"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/rbtn_default"
-                    android:layout_weight="1"
-                    android:checked="true"/>
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/rad_discount">
 
-                <RadioButton
-                    android:text="현금할인(10%할인)"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/rbtn_cash"
+                    <RadioButton
+                        android:text="기본할인(5%할인)"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/rbtn_default"
+                        android:layout_weight="1"
+                        android:checked="true"/>
+
+                    <RadioButton
+                        android:text="현금할인(10%할인)"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/rbtn_cash"
+                        android:layout_weight="1" />
+
+                    <RadioButton
+                        android:text="MemberShip있음(20%할인)"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/rbtn_membership"
+                        android:layout_weight="1" />
+
+
+
+
+                </RadioGroup>
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    app:srcCompat="@drawable/a1"
+                    android:id="@+id/imageView"
                     android:layout_weight="1" />
+            </LinearLayout>
 
-                <RadioButton
-                    android:text="MemberShip있음(20%할인)"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/rbtn_membership"
-                    android:layout_weight="1" />
-
-
-
-            </RadioGroup>
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
