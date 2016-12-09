@@ -16,6 +16,7 @@ import android.widget.RadioGroup;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 public class reserve extends AppCompatActivity {
     Switch start_switch;
@@ -32,6 +33,7 @@ public class reserve extends AppCompatActivity {
     double total_price;
     int adult_total, young_total, child_total;
     double discount_price;
+    boolean custom_completeflag = false;
 
 
     @Override
@@ -114,8 +116,9 @@ public class reserve extends AppCompatActivity {
                 child_total = Integer.parseInt(child.getText().toString());
                 total_price = (adult_total * 15000) + (young_total * 12000) + (child_total * 6000);
                 total_customer = adult_total + young_total + child_total;
+                custom_completeflag = true;
 
-                totalreserved.setText("총 명수 : " + (int)total_customer);
+                totalreserved.setText("총 명수 : " + total_customer);
                 total_discount.setText("할인금액 : " + (int)discount_price);
                 total_cost.setText("결제금액 : " + (int)(total_price - discount_price));
             }
@@ -126,6 +129,41 @@ public class reserve extends AppCompatActivity {
             public void onClick(View view) {
                 customer.setVisibility(View.INVISIBLE);
                 datetimepick.setVisibility(View.VISIBLE);
+            }
+        });
+
+        rd_datetime.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                switch(i) {
+                    case R.id.rbtn_datepick :
+                        d_pick.setVisibility(View.VISIBLE);
+                        t_pick.setVisibility(View.INVISIBLE);
+                        break;
+                    case R.id.rbtn_timepick :
+                        t_pick.setVisibility(View.VISIBLE);
+                        d_pick.setVisibility(View.INVISIBLE);
+                        break;
+                }
+            }
+        });
+        backpage.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                datetimepick.setVisibility(View.INVISIBLE);
+                customer.setVisibility(View.VISIBLE);
+            }
+        });
+
+        timeregist.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(custom_completeflag) {
+
+                }
+                else {
+                    Toast.makeText(getApplicationContext(), "인원예약을 먼저하세요.", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 

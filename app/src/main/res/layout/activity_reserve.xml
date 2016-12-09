@@ -234,17 +234,22 @@
                 android:textAlignment="center"
                 />
 
-            <TimePicker
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/timePicker"
-                android:visibility="visible"/>
+                android:layout_height="250dp">
 
-            <CalendarView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/calendarView"
-                android:visibility="invisible"/>
+                <CalendarView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/calendarView"
+                    android:visibility="visible"/>
+
+                <TimePicker
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/timePicker"
+                    android:visibility="invisible"/>
+            </FrameLayout>
 
             <LinearLayout
                 android:orientation="horizontal"
